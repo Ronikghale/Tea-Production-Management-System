@@ -1,0 +1,329 @@
+/* Product.css - Hatry Patti Tea Shop Management */
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f9f5f0;
+  color: #553c2b;
+  line-height: 1.6;
+  padding: 30px 0 50px;
+}
+
+/* Header Styles */
+.header {
+  background: linear-gradient(135deg, #6a994e 0%, #386641 100%);
+  color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.logo-text h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.logo-text p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f8edeb;
+}
+
+.nav-links a.active {
+  color: #f8edeb;
+  font-weight: 600;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #f8edeb;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+  width: 100%;
+}
+
+/* Main Content Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #386641;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background-color: #6a994e;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h2 {
+  font-size: 24px;
+  margin: 25px 0 15px;
+  color: #553c2b;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Add Product Form Styles */
+form[enctype="multipart/form-data"]:first-of-type {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+form[enctype="multipart/form-data"]:first-of-type table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  box-shadow: none;
+}
+
+form[enctype="multipart/form-data"]:first-of-type td {
+  padding: 10px;
+}
+
+/* HR Style */
+hr {
+  border: none;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(106, 153, 78, 0.75), rgba(0, 0, 0, 0));
+  margin: 30px 0;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  margin: 30px 0;
+}
+
+table[border="1"] {
+  border: none;
+}
+
+thead {
+  background-color: #386641;
+  color: #fff;
+}
+
+th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:nth-child(odd):not(:last-child) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover:not(:last-child) {
+  background-color: #f0f7ed;
+}
+
+td {
+  padding: 15px;
+  vertical-align: middle;
+}
+
+td[colspan="6"] {
+  background-color: #f9f5f0;
+  padding: 5px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Form Element Styles */
+input[type="text"], input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #6a994e;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(106, 153, 78, 0.2);
+}
+
+input[type="file"] {
+  padding: 8px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background-color: #6a994e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #386641;
+}
+
+button {
+  background-color: #6a994e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+button:hover {
+  background-color: #386641;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Delete Button Style */
+form[action*="product-management"]:nth-child(even) button {
+  background-color: #e76f51;
+}
+
+form[action*="product-management"]:nth-child(even) button:hover {
+  background-color: #d65f41;
+}
+
+/* Product Image Styles */
+td img {
+  border-radius: 6px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 80px;
+  height: 80px;
+}
+
+/* Empty State Message */
+p:last-child {
+  text-align: center;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  font-size: 18px;
+  color: #888;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-links {
+    margin-top: 10px;
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  input[type="text"] {
+    min-width: 120px;
+  }
+  
+  form[enctype="multipart/form-data"]:first-of-type td {
+    display: block;
+    width: 100%;
+  }
+  
+  form[enctype="multipart/form-data"]:first-of-type input {
+    margin-bottom: 10px;
+  }
+}

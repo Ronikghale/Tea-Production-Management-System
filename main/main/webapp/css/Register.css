@@ -1,0 +1,114 @@
+ :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #8bc34a;
+            --accent-color: #ffc107;
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+            --white: #ffffff;
+            --error-color: #f44336;
+        }
+        body {
+            margin: 0;
+            background-color: var(--light-bg);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        .register-section {
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .register-container {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+        .register-image {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(46, 125, 50, 0.8)), url('/api/placeholder/600/800') center/cover no-repeat;
+            padding: 40px;
+            color: var(--white);
+        }
+        .register-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+        }
+        .register-form h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .login-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .error-message {
+            color: var(--error-color);
+            font-size: 13px;
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+            }
+        }
