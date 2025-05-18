@@ -5,14 +5,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Login - Hatey Patti Tea Production</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Login.css">
-
-</head>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Login.css?v=1.2.1"></head>
 <body>
   <div class="container">
     <div class="left">
       <h2>Welcome Back</h2>
-      <p>Log in to your Hatey Patti account to access the comprehensive tea production management tools and continue managing your operations efficiently.</p>
+      <p>Log in as <strong>Admin</strong> or <strong>Customer</strong> to manage tea production efficiently.</p>
       <ul>
         <li>📊 Real-time production tracking</li>
         <li>🗃 Inventory management</li>
@@ -21,14 +19,19 @@
       </ul>
     </div>
     <div class="right">
-    <form action="${pageContext.request.contextPath}/Login" method="post">
-      <h2>Login</h2>
-      
+      <form action="${pageContext.request.contextPath}/Login" method="post">
+        <h2>Login</h2>
+
+        <!-- Error message display -->
+        <c:if test="${not empty error}">
+            <p style="color: red;">${error}</p>
+        </c:if>
+
         <label>Email Address</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email" value="${email}" required>
 
         <label>Password</label>
-       <input type="password" name="password" required>
+        <input type="password" name="password" required>
 
         <div class="options">
           <label><input type="checkbox"> Remember me</label>
@@ -36,16 +39,15 @@
         </div>
 
         <button type="submit">Login</button>
-		</form>
-        <p>Don't have an account? <a href="${pageContext.request.contextPath}/Register">Register Now</a></p>
+      </form>
 
+      <p>Don't have an account? <a href="${pageContext.request.contextPath}/Register">Register Now</a></p>
 
-        <div class="or">Or login with</div>
-        <div class="social">
-          <button class="google">G</button>
-          <button class="facebook">f</button>
-        </div>
-      
+      <div class="or">Or login with</div>
+      <div class="social">
+        <button class="google">G</button>
+        <button class="facebook">f</button>
+      </div>
     </div>
   </div>
 </body>

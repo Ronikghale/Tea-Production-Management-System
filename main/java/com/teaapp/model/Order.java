@@ -23,6 +23,7 @@ public class Order {
     }
 
     // Getters and Setters
+    
     // ...
 
     @Override

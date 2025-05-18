@@ -12,6 +12,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Handles customer login requests for the TeaApp, authenticating users and managing sessions.
@@ -24,21 +25,24 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Customer customer = (Customer) sessionutil.getAttribute(req, "customer");
-        String role = (String) sessionutil.getAttribute(req, "role");
+        HttpSession session = req.getSession(false); // don't create new session
 
-        if (customer != null) {
-            System.out.println("Active session found for customer ID: " + customer.getCustomerId() + ", Role: " + role);
+        if (session != null) {
+            Customer customer = (Customer) session.getAttribute("customer");
+            String role = (String) session.getAttribute("role");
 
-            String redirectPath = "admin".equals(role) ? "/dashboard" : "/home";
-            System.out.println("Redirecting logged-in user to: " + redirectPath);
-            resp.sendRedirect(req.getContextPath() + redirectPath);
-            return;
+            if (customer != null) {
+                System.out.println("Session still active for: " + customer.getCustomerId());
+                String redirectPath = "admin".equals(role) ? "/dashboard" : "/home";
+                resp.sendRedirect(req.getContextPath() + redirectPath);
+                return;
+            }
         }
 
-        System.out.println("No active session. Forwarding to login form.");
+        System.out.println("No active session. Showing login page.");
         req.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(req, resp);
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -80,9 +84,10 @@ public class LoginController extends HttpServlet {
 
         if ("admin@teaapp.com".equals(email)) {
             sessionutil.setAttribute(req, "role", "admin");
-            System.out.println("Admin logged in.");
-            resp.sendRedirect(req.getContextPath() + "/dashboard");
-        } else {
+            sessionutil.setAttribute(req, "adminName", customerFromDb.getFirstName()); // optional
+            resp.sendRedirect(req.getContextPath() + "/admindashboard");
+        }
+        else {
             sessionutil.setAttribute(req, "role", "customer");
             System.out.println("Customer logged in.");
             resp.sendRedirect(req.getContextPath() + "/home");

@@ -44,4 +44,76 @@ public class Tea {
                 ", quality='" + quality + '\'' +
                 '}';
     }
+
+	public int getTeaId() {
+		return teaId;
+	}
+
+	public void setTeaId(int teaId) {
+		this.teaId = teaId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public double getPricePerKg() {
+		return pricePerKg;
+	}
+
+	public void setPricePerKg(double pricePerKg) {
+		this.pricePerKg = pricePerKg;
+	}
+
+	public String getHarvestingLocation() {
+		return harvestingLocation;
+	}
+
+	public void setHarvestingLocation(String harvestingLocation) {
+		this.harvestingLocation = harvestingLocation;
+	}
+
+	public String getHarvestedDate() {
+		return harvestedDate;
+	}
+
+	public void setHarvestedDate(String harvestedDate) {
+		this.harvestedDate = harvestedDate;
+	}
+
+	public String getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(String supplier) {
+		this.supplier = supplier;
+	}
+
+	public String getExportStatus() {
+		return exportStatus;
+	}
+
+	public void setExportStatus(String exportStatus) {
+		this.exportStatus = exportStatus;
+	}
+
+	public String getQuality() {
+		return quality;
+	}
+
+	public void setQuality(String quality) {
+		this.quality = quality;
+	}
 }
